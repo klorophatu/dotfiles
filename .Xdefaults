@@ -1,0 +1,34 @@
+URxvt*termName:                 rxvt-256color
+URxvt*font:                     xft:Gohu Gohufont:pixelsize=14
+URxvt.depth:                    32
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 65x17
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           5
+URxvt.perl-ext-common:          default,clipboard
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.clipboard.autocopy:       true
+
+! Colors
+URxvt*background:   [85]#1d232f
+URxvt*foreground:   #eff0eb
+URxvt*cursorColor:  #9aedfe
+URxvt*color0:      #33303b
+URxvt*color8:      #4f4b58
+URxvt*color1:      #ff5c57
+URxvt*color9:      #ff5c57
+URxvt*color2:      #5af78e
+URxvt*color10:     #5af78e
+URxvt*color3:      #f3f99d
+URxvt*color11:     #f3f99d
+URxvt*color4:      #57c7ff
+URxvt*color12:     #57c7ff
+URxvt*color5:      #ff6ac1
+URxvt*color13:     #ff6ac1
+URxvt*color6:      #9aedfe
+URxvt*color14:     #9aedfe
+URxvt*color7:      #eff0eb
+URxvt*color15:     #eff0eb
