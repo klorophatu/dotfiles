@@ -1,0 +1,32 @@
+{ pkgs, ... }:
+{
+  home.packages = [
+    pkgs.cmus
+    pkgs.teams
+    pkgs.unzip
+    pkgs.zip
+    pkgs.unrar
+    pkgs.zathura
+    pkgs.qbittorrent
+    pkgs.mpv
+    pkgs.youtube-dl
+    pkgs.filezilla
+    pkgs.emacs
+    pkgs.gajim
+    pkgs.neofetch
+    pkgs.irssi
+    pkgs.electrum
+    pkgs.git
+    pkgs.lxtask
+    pkgs.pulsemixer
+    pkgs.mumble
+    pkgs.sxiv
+    pkgs.maim
+    pkgs.pcmanfm
+    pkgs.ncdu
+    pkgs.nnn
+    pkgs.keepassxc
+    pkgs.discord
+    pkgs.newsboat
+  ];
+}
