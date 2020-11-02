@@ -10,5 +10,6 @@
     font-awesome_4
     powerline-fonts
     dejavu_fonts
+    roboto-slab
   ];
 }

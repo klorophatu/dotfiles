@@ -28,5 +28,11 @@
     pkgs.keepassxc
     pkgs.discord
     pkgs.newsboat
+    pkgs.xclip
+    pkgs.sqlite
+    pkgs.hunspellDicts.en-us
+    pkgs.ispell
+    pkgs.hunspell
+    pkgs.thunderbird
   ];
 }

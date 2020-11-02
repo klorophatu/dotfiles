@@ -3,11 +3,16 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
+
+  nixpkgs.overlays = [
+    (import ./st-overlay.nix)
+  ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -68,15 +73,21 @@
   users.users.eon = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget gnupg vim git alacritty xorg.xkill
+    wget vim git xorg.xkill st
     firefox
+    wineWowPackages.stable
   ];
 
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware.pulseaudio.support32Bit = true;
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -106,6 +117,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
-
