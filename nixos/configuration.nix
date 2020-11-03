@@ -81,12 +81,7 @@
   environment.systemPackages = with pkgs; [
     wget vim git xorg.xkill st
     firefox
-    wineWowPackages.stable
   ];
-
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-  hardware.pulseaudio.support32Bit = true;
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

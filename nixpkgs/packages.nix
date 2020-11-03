@@ -34,5 +34,6 @@
     pkgs.ispell
     pkgs.hunspell
     pkgs.thunderbird
+    pkgs.github-cli
   ];
 }
