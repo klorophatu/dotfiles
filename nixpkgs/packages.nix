@@ -4,6 +4,7 @@
     pkgs.cmus
     pkgs.teams
     pkgs.unzip
+    pkgs.hsetroot
     pkgs.zip
     pkgs.unrar
     pkgs.zathura
@@ -35,5 +36,9 @@
     pkgs.hunspell
     pkgs.thunderbird
     pkgs.github-cli
+    pkgs.ghostwriter
+    pkgs.soulseekqt
+    pkgs.vscode
+    pkgs.ripgrep
   ];
 }

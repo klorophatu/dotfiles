@@ -14,7 +14,6 @@
   # Dunst
   services.dunst.enable = true;
 
-  # Compton
+  # Picom
   services.picom.enable = false;
-
 }
