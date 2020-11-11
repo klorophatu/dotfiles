@@ -2,19 +2,15 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
-
-" Bundles
-" Actual plugins
 Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-" Syntax highlighting
 Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 Plug 'wannesm/wmgraphviz.vim'
-" /Bundles
-
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -51,9 +47,6 @@ set notimeout
 set incsearch
 set showmatch
 set hlsearch
-
-" Resize windows and move tabs and such with the mouse
-set mouse=a
 
 " Don't litter swp files everywhere
 set backupdir=~/.cache
