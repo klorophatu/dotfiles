@@ -1,5 +1,9 @@
-theme = "modern"
-icons = "awesome"
+[theme]
+name = "modern"
+[theme.overrides]
+separator = ""
+[icons]
+name = "awesome"
 
 [[block]]
 block = "disk_space"
