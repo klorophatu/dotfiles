@@ -38,14 +38,19 @@ exec --no-startup-id nm-applet
 # emacs anywhere
 bindsym $mod+m exec --no-startup-id "sh ~/.emacs_anywhere/bin/run"
 
+for_window [title="Emacs Anywhere"] floating enable
+
 # keys
 exec --no-startup-id setxkbmap -option "caps:swapescape"
 
 # compositor
 exec --no-startup-id picom
 
+# megasync
+exec --no-startup-id megasync
+
 # wallpaper
-exec --no-startup-id hsetroot -cover ~/wall.png
+exec --no-startup-id hsetroot -tile ~/wall.png
 
 # reload xthings
 exec --no-startup-id xrdb ~/.xdefaults
