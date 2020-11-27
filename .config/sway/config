@@ -28,41 +28,41 @@ set $mod Mod4
 #bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 # Screenshot
-bindsym Print exec --no-startup-id "maim -u ~/Pictures/Screenshots/$(date +%s).png"
-bindsym Shift+Print exec --no-startup-id "maim -u -s ~/Pictures/Screenshots/$(date +%s).png"
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+bindsym Print exec "grimshot save"
+bindsym Shift+Print exec "grimshot area"
 
 # emacs anywhere
-bindsym $mod+m exec --no-startup-id "sh ~/.emacs_anywhere/bin/run"
+bindsym $mod+m exec "sh ~/.emacs_anywhere/bin/run"
 
 for_window [title="Emacs Anywhere"] floating enable
 
 # keys
-exec --no-startup-id setxkbmap -option "caps:swapescape"
+input "type:keyboard" {
+#    xkb_layout us,de
+#    xkb_variant ,nodeadkeys
+     xkb_options caps:swapescape
+}
 
 # compositor
-exec --no-startup-id picom
+# exec picom
 
 # megasync
-exec --no-startup-id megasync
+exec megasync
 
 # wallpaper
-exec --no-startup-id hsetroot -tile ~/wall.png
+output "*" bg ~/wall.png tile
 
 # reload xthings
-exec --no-startup-id xrdb ~/.xdefaults
+exec xrdb ~/.xdefaults
 
 # dunst
-exec --no-startup-id dunst
+exec dunst
 
 # gnome polkit
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+# exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # display
-#exec --no-startup-id xrandr --output VGA1 --right-of LVDS1 --auto
+#exec xrandr --output VGA1 --right-of LVDS1 --auto
 
 # border
 
@@ -73,29 +73,29 @@ smart_borders on
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3statuS
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-#bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-#bindsym $mod+F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym $mod+F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+#bindsym $mod+F11 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym $mod+F10 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Return exec foot
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec --no-startup-id dmenu_run
+bindsym $mod+p exec bemenu-run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -186,10 +186,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10;
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec swaymsg reload
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -220,16 +219,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 9
-    position top
-    status_command /bin/i3status-rs ~/.config/i3/status.toml
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #4c5e5e #4c5e5e #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
-    }
+  swaybar_command waybar
+  workspace_buttons yes
 }
