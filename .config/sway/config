@@ -32,26 +32,17 @@ input "type:keyboard" {
      xkb_options caps:swapescape
 }
 
-# compositor
-# exec picom
-
 # megasync
 exec megasync
 
 # wallpaper
 output "*" bg ~/wall.png tile
 
-# reload xthings
-exec xrdb ~/.xdefaults
-
-# dunst
-exec dunst
+# notifications
+exec mako --default-timeout 2000
 
 # gnome polkit
 # exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-
-# display
-#exec xrandr --output VGA1 --right-of LVDS1 --auto
 
 # border
 
@@ -64,7 +55,7 @@ smart_borders on
 set $refresh_i3status killall -SIGUSR1 i3statuS
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 #bindsym $mod+F12 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 #bindsym $mod+F11 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 #bindsym $mod+F10 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -79,12 +70,8 @@ bindsym $mod+Return exec foot
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
+# application launcher
 bindsym $mod+p exec bemenu-run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -110,7 +97,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+t			split toggle
+bindsym $mod+t		split toggle
 bindsym $mod+Shift+t	gaps inner current set 5; gaps outer current set 3
 
 # enter fullscreen mode for the focused container
