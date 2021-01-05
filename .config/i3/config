@@ -38,7 +38,7 @@ exec --no-startup-id nm-applet
 # emacs anywhere
 bindsym $mod+m exec --no-startup-id "sh ~/.emacs_anywhere/bin/run"
 
-for_window [title="Emacs Anywhere"] floating enable
+for_window [title="Emacs Anywhere"] floating enable; resize set 640 480; move absolute position center;
 
 # keys
 exec --no-startup-id setxkbmap -option "caps:swapescape"
@@ -122,7 +122,6 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 bindsym $mod+t			split toggle
-bindsym $mod+Shift+t	gaps inner current set 5; gaps outer current set 3
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
