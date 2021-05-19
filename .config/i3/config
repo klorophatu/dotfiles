@@ -6,14 +6,14 @@ font pango:DejaVu Sans Mono 9
 #----------------------------------------------------------------------
 
 #------ Gaps ----------------------------------------------------------
-gaps inner 15
-gaps outer 15
-smart_gaps on
-
-bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
+#gaps inner 15
+#gaps outer 15
+#smart_gaps on
+#
+#bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
+#bindsym $mod+s			gaps inner current plus 5
+#bindsym $mod+Shift+s		gaps inner current minus 5
+#bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 #----------------------------------------------------------------------
 
 #------ User Keybindings ----------------------------------------------
@@ -29,10 +29,10 @@ bindsym Control+Shift+Print exec --no-startup-id "maim -u -s | xclip -selection 
 #------ Startup -------------------------------------------------------
 exec --no-startup-id setxkbmap -option "caps:swapescape"
 exec --no-startup-id picom
-exec --no-startup-id megasync
-exec --no-startup-id hsetroot -cover ~/wall.png
+exec --no-startup-id hsetroot -solid "#4C5E62"
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id alacritty -e "$HOME/.local/bin/mount.sh"
 exec --no-startup-id gnome-keyring-daemon
 #----------------------------------------------------------------------
 
@@ -40,6 +40,14 @@ exec --no-startup-id gnome-keyring-daemon
 default_border pixel 3
 default_floating_border pixel 3
 smart_borders on
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #89d6a0   #49807f
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 #----------------------------------------------------------------------
 
 #------ Volume --------------------------------------------------------
