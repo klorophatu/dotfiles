@@ -1,8 +1,12 @@
 set $mod Mod4
 floating_modifier $mod
 
+#------ Variables -----------------------------------------------------
+set $font Mx437 IBM VGA 8x16
+#----------------------------------------------------------------------
+
 #------ Font ----------------------------------------------------------
-font pango:DejaVu Sans Mono 9
+font xft:$font 10
 #----------------------------------------------------------------------
 
 #------ Gaps ----------------------------------------------------------
@@ -68,7 +72,7 @@ for_window [title="Emacs Anywhere"] floating enable; resize set 640 480; move ab
 bindsym $mod+m exec --no-startup-id "sh ~/.emacs_anywhere/bin/run"
 bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+Shift+c kill
-bindsym $mod+p exec --no-startup-id dmenu_run
+bindsym $mod+p exec --no-startup-id dmenu_run -fn "$font"
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -154,7 +158,7 @@ bindsym $mod+r mode "resize"
 
 #------ Status Bar ----------------------------------------------------
 bar {
-    font pango:DejaVu Sans Mono , FontAwesome 9
+    font xft:$font , FontAwesome 11
     position top
     status_command /bin/i3status-rs ~/.config/i3/status.toml
     colors {
