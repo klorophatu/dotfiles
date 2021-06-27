@@ -36,7 +36,7 @@ exec --no-startup-id picom
 exec --no-startup-id hsetroot -solid "#4C5E62"
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id alacritty -e "$HOME/.local/bin/mount.sh"
+exec --no-startup-id st -e "$HOME/.local/bin/mount.sh"
 exec --no-startup-id gnome-keyring-daemon
 #----------------------------------------------------------------------
 
