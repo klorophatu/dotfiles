@@ -11,8 +11,8 @@ Plug 'cespare/vim-toml'
 Plug 'wannesm/wmgraphviz.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
-
 filetype plugin indent on
 
 set laststatus=2
@@ -28,7 +28,7 @@ set shiftwidth=8
 set autoindent
 set magic " unbreak vim's regex implementation
 
-set number
+set rnu
 set scrolloff=3
 set sidescroll=3
 
